@@ -18,13 +18,13 @@ namespace Sixty.Controllers
                 Email = "vin.kirill@gmail.com",
                 Password = "",
                 LastVisitDate = null,
-                Name = "Кирилл",
-                Surname = "Винокуров",
-                BirthDate = DateTime.Parse("1988-07-19"),
+                Name = "Администратор",
+                Surname = "",
+                BirthDate = DateTime.Parse("1753-01-01"),
                 RegistrationDate = DateTime.Now.Date
             };
 
-            var userManager = ManagerProvider.Instance.Get<User>();
+            var userManager = ManagerProvider.Instance.Get<User>() as UserManager;
             if (userManager == null)
             {
                 throw new Exception("Менеджер сущности User н езарегистрирован в системе!");
