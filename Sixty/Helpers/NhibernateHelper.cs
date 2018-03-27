@@ -5,6 +5,7 @@ using System.Web;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
+using Sixty.Models;
 
 namespace Sixty.Helpers
 {
@@ -39,7 +40,7 @@ namespace Sixty.Helpers
             configuration.Configure(configurePath);
             try
             {
-                //configuration.AddAssembly(typeof(Hero).Assembly);
+                configuration.AddAssembly(typeof(User).Assembly);
             }
             catch (MappingException ex)
             {

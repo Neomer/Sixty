@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sixty.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,8 @@ namespace Sixty
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            NHibernateHelper.Instance.Initialize(HttpContext.Current.Server.MapPath(@"bin"));
         }
     }
 }
