@@ -12,7 +12,7 @@ namespace Sixty.Models
         #endregion
 
         public virtual string Name { get; set; }
-        public virtual TeamDivision Devision { get; set; }
+        public virtual TeamDivision Division { get; set; }
 
         public virtual IEnumerable<User> Users { get; set; }
     }

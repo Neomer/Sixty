@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="WorldApp" namespace="WorldApp.Models">
+  <class name="User" table="Users" dynamic-update="true" >
+    <id name="Id" type="guid">
+      <generator class="guid"/>
+    </id>
+    <property name="Name" not-null="true" />
+    <property name="Surname" />
+    <property name="Email" not-null="true" />
+    <property name="Password" not-null="true" />
+    <property name="BirthDate" not-null="false" />
+    <property name="RegistrationDate" not-null="true" />
+    <property name="LastVisitDate" not-null="false" />
+    <many-to-one name="Team" class="Team" column="TeamID"/>
+  </class>
+
+  <class name="Team" table="Teams" dynamic-update="true" >
+    <id name="Id" type="guid">
+      <generator class="guid"/>
+    </id>
+    <property name="Name" not-null="true" />
+    <property name="Division" not-null="true" />
+    <bag name="Users" inverse="true" order-by="name asc">
+      <key column="UserID"/>
+      <one-to-many class="User"/>
+    </bag>
+  </class>
+  
+</hibernate-mapping>
