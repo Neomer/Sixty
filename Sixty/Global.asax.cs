@@ -1,4 +1,5 @@
 ﻿using Sixty.Helpers;
+using Sixty.Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,13 @@ namespace Sixty
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             NHibernateHelper.Instance.Initialize(HttpContext.Current.Server.MapPath(@"bin"));
+
+            RegisterManagers();
+        }
+
+        private void RegisterManagers()
+        {
+            ManagerProvider.Instance.Register(new UserManager());
         }
     }
 }

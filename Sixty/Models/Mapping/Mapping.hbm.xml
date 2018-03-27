@@ -21,7 +21,7 @@
     <property name="Name" not-null="true" />
     <property name="Division" not-null="true" />
     <bag name="Users" inverse="true" order-by="name asc">
-      <key column="UserID"/>
+      <key column="Id"/>
       <one-to-many class="User"/>
     </bag>
   </class>

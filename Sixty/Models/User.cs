@@ -18,7 +18,7 @@ namespace Sixty.Models
         public virtual DateTime BirthDate { get; set; }
 
         public virtual DateTime RegistrationDate { get; set; }
-        public virtual DateTime LastVisitDate { get; set; }
+        public virtual DateTime? LastVisitDate { get; set; }
 
         public virtual Team Team { get; set; }
     }
