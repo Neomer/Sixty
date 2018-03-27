@@ -136,6 +136,7 @@
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\IManager.cs" />
     <Compile Include="Managers\ManagerProvider.cs" />
+    <Compile Include="Managers\TeamManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Models\IEntity.cs" />
     <Compile Include="Models\Team.cs" />

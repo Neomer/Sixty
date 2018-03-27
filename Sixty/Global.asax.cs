@@ -27,6 +27,7 @@ namespace Sixty
         private void RegisterManagers()
         {
             ManagerProvider.Instance.Register(new UserManager());
+            ManagerProvider.Instance.Register(new TeamManager());
         }
     }
 }
