@@ -43,5 +43,13 @@ namespace Sixty.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

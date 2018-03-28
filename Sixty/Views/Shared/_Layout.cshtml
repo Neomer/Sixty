@@ -22,12 +22,15 @@
                 <a class="navbar-brand" style="padding: 0px;" href="#">
                     <img alt="60 секунд Ижевск" src="@Url.Content("~/Resources/Images/main-logo.png")">
                 </a>
-                @Html.ActionLink("60 секунд Ижевск", "Index", "Home", new { area = "" }, new { @class = "navbar-brand main-title",  })
+                @Html.ActionLink("60 секунд Ижевск", "Index", "Home", new { area = "" }, new { @class = "navbar-brand main-title", })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Моя страница", "Index", "Home")</li>
                     <li>@Html.ActionLink("Результаты", "Index", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Выйти", "Logout", "Account")</li>
                 </ul>
             </div>
         </div>
