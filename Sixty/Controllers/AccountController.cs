@@ -17,6 +17,10 @@ namespace Sixty.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -34,6 +38,7 @@ namespace Sixty.Controllers
                     return View(model);
                 }
                 FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
+                return RedirectToAction("Index", "Home");
             }
             return View(model);
         }

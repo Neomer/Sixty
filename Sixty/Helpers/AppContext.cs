@@ -7,17 +7,17 @@ using System.Web;
 
 namespace Sixty.Helpers
 {
-    public class Context
+    public class AppContext
     {
         #region Singleton
-        private static Context _instance;
-        public static Context Instance
+        private static AppContext _instance;
+        public static AppContext Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new Context();
+                    _instance = new AppContext();
                 }
                 return _instance;
             }
