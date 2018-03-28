@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Sixty.Models;
-using Sixty.Managers;
-using Sixty.Helpers;
 
 namespace Sixty.Controllers
 {
-    public class HomeController : Controller
+    public class AccountController : Controller
     {
-        [Authorize]
+        // GET: Account
         public ActionResult Index()
         {
-
             return View();
         }
+
     }
 }

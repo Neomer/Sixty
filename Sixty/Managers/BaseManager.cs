@@ -57,7 +57,7 @@ namespace Sixty.Managers
 
         public void SaveEntity(IEntity entity)
         {
-            throw new NotImplementedException();
+            NHibernateHelper.Instance.GetCurrentSession().Save(entity);
         }
     }
 }

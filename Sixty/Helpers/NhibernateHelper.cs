@@ -82,5 +82,28 @@ namespace Sixty.Helpers
             }
             return _session;
         }
+
+        public ITransaction BeginTransaction()
+        {
+            return GetCurrentSession().BeginTransaction();
+        }
+
+        public void Commit(ITransaction transaction)
+        {
+            try
+            {
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+        }
+
+        public void Rollback(ITransaction transaction)
+        {
+            transaction.Rollback();
+        }
     }
 }
