@@ -13,10 +13,10 @@ namespace Sixty.ViewModels
             Name = user.Name;
             Surname = user.Surname;
             BirthDate = user.BirthDate;
-            EMail = user.Email;
+            Email = user.Email;
         }
 
-        public string EMail { get; }
+        public string Email { get; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime BirthDate { get; set; }
