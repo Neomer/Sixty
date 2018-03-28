@@ -15,7 +15,7 @@ namespace Sixty.Models
         public virtual string Surname { get; set; }
         public virtual string Email { get; set; }
         public virtual string Password { get; set; }
-        public virtual DateTime BirthDate { get; set; }
+        public virtual DateTime? BirthDate { get; set; }
 
         public virtual DateTime RegistrationDate { get; set; }
         public virtual DateTime? LastVisitDate { get; set; }

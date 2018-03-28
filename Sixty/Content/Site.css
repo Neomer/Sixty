@@ -41,11 +41,6 @@ div.right-border {
     white-space: nowrap;
 }
 
-.form-group > div > input[type="email"],
-.form-group > div > input[type="password"] {
-    width: 100%;
-}
-
 form {
     border: 1px solid #dddddd;
     padding: 15px;
@@ -57,4 +52,20 @@ form {
     color: #ff0000;
     font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
     font-size: 0.9em;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.label-required {
+    color: #ff0000;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
 }

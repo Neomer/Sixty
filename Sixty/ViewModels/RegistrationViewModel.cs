@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sixty.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace Sixty.ViewModels
     {
         [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "Повторите пароль")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают!")]
         public string PasswordRetype { get; set; }
     }
 }

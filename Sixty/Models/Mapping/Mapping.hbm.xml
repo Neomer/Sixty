@@ -6,7 +6,7 @@
     </id>
     <property name="Name" />
     <property name="Surname" />
-    <property name="Email" not-null="true" />
+    <property name="Email" unique="true" not-null="true" />
     <property name="Password" not-null="true" />
     <property name="BirthDate" />
     <property name="RegistrationDate" not-null="true" />

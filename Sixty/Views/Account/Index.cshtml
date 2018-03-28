@@ -1,4 +1,5 @@
 ﻿@model Sixty.ViewModels.SignInViewModel
+@using Sixty.Helpers
 
 @{
     ViewBag.Title = "Вход";
@@ -37,19 +38,19 @@
         <div class="form-group">
             @Html.LabelFor(m => m.Email, new { @class = "col-sm-3 control-label" })
             <div class="col-sm-9">
-                @Html.EditorFor(m => m.Email)
+                @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "full-width" } })
                 @Html.ValidationMessageFor(m => m.Email)
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Password, new { @class = "col-sm-3 control-label" })
             <div class="col-sm-9">
-                @Html.EditorFor(m => m.Password)
+                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "full-width" } })
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
         </div>
-        <button type="submit" class="btn btn-default">Вход</button>
-        @Html.ActionLink("Зарегистрироваться", "Account", "Register")
+        <button type="submit" class="btn btn-default">@TR.T("Войти")</button>
+        @Html.ActionLink(TR.T("Зарегистрироваться"), "Register", "Account")
     }
 </div>
 
