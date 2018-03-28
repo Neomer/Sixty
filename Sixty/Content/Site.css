@@ -69,3 +69,15 @@ form {
 .hidden {
     display: none;
 }
+
+.user-menu {
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-size: 1em;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+.user-menu > li {
+    padding-bottom: 5px;
+}

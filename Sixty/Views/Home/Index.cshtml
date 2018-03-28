@@ -2,3 +2,13 @@
     ViewBag.Title = "Главная страница";
 }
 
+<div class="col-md-2">
+    <ul class="user-menu">
+        <li>@Html.ActionLink("Мой профиль", "Profile", "Home")</li>
+        <li>@Html.ActionLink("Моя команда", "Index", "Team")</li>
+        <li>@Html.ActionLink("Сообщения", "Index", "Message")</li>
+    </ul>
+</div>
+<div class="col-md-10">
+    info
+</div>
