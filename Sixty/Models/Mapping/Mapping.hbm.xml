@@ -4,13 +4,13 @@
     <id name="Id" type="guid">
       <generator class="guid"/>
     </id>
-    <property name="Name" not-null="true" />
+    <property name="Name" />
     <property name="Surname" />
     <property name="Email" not-null="true" />
     <property name="Password" not-null="true" />
-    <property name="BirthDate" not-null="false" />
+    <property name="BirthDate" />
     <property name="RegistrationDate" not-null="true" />
-    <property name="LastVisitDate" not-null="false" />
+    <property name="LastVisitDate" />
     <many-to-one name="Team" class="Team" column="TeamID"/>
   </class>
 

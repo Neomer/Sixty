@@ -21,5 +21,9 @@ namespace Sixty.Models
         public virtual DateTime? LastVisitDate { get; set; }
 
         public virtual Team Team { get; set; }
+
+        public virtual string StatusString { get; set; }
+        public virtual string PhotoPath { get; set; }
+
     }
 }
