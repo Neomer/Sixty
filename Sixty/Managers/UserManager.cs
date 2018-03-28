@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using NHibernate.Criterion;
 
 namespace Sixty.Managers
 {
@@ -13,6 +14,14 @@ namespace Sixty.Managers
         {
             user.Team = team;
             CreateEntity(user);
+        }
+
+        public User GetByEmailPassword(string email, string password)
+        {
+            return NHibernateHelper.Instance.GetCurrentSession().CreateCriteria<User>()
+                .Add(Restrictions.Eq("Email", email))
+                .Add(Restrictions.Eq("Password", password))
+                .UniqueResult<User>();
         }
     }
 }

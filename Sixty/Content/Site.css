@@ -19,6 +19,9 @@ div.left-border {
     border-left: 1px solid #dddddd;
 }
 
+div.right-border {
+    border-right: 1px solid #dddddd;
+}
 .header {
     padding: 5px;
     
@@ -32,3 +35,26 @@ div.left-border {
     text-align: left;
 }
 
+.form-group > label {
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.form-group > div > input[type="email"],
+.form-group > div > input[type="password"] {
+    width: 100%;
+}
+
+form {
+    border: 1px solid #dddddd;
+    padding: 15px;
+    border-radius: 3px 3px;
+    box-shadow: 1px 1px 3px rgba(188,188,188,0.5);
+}
+
+.field-validation-error {
+    color: #ff0000;
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-size: 0.9em;
+}
