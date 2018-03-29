@@ -79,5 +79,13 @@ form {
 }
 
 .user-menu > li {
-    padding-bottom: 5px;
+    padding-bottom: 7px;
+}
+
+.user-menu > li > div {
+    padding: 2px 5px;
+}
+
+div.hoverable:hover {
+    background-color: #ff0000;
 }

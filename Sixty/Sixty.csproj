@@ -130,6 +130,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -158,6 +160,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <EmbeddedResource Include="Models\Mapping\Mapping.hbm.xml" />
+    <Content Include="Resources\Images\home16.png" />
+    <Content Include="Resources\Images\main-logo.png" />
+    <Content Include="Resources\Images\msg16.png" />
+    <Content Include="Resources\Images\team16.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Nhibernate.cfg.xml">
@@ -190,10 +196,11 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Script\" />
   </ItemGroup>
   <ItemGroup>
