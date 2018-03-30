@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DivisionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
@@ -215,6 +216,7 @@
     <Content Include="Views\Shared\UserMenu.cshtml" />
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\Shared\AdminMenu.cshtml" />
+    <Content Include="Views\Division\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

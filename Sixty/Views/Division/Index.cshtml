@@ -1,0 +1,27 @@
+﻿@using Sixty.Models
+@model IEnumerable<Division>
+
+@{ 
+    ViewBag.Title = "Управление дивизионами";
+    var num = 1;
+}
+
+<div class="portlet">
+    <table class="table table-striped">
+        <thead>
+        <th>#</th>
+        <th>Наименование</th>
+        <th>Действия</th>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@num++</td>
+                    <td>@item.Name</td>
+                    <td>@item.AvailableForNewbee</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
