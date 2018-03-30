@@ -19,7 +19,7 @@ namespace Sixty.Controllers
             User user = null;
             try
             {
-                user = AppContext.Instance.CurrentUser(this);
+                user = AppContext.Instance.CurrentUser(User.Identity);
             }
             catch (Exception)
             {
@@ -41,7 +41,7 @@ namespace Sixty.Controllers
             User user = null;
             try
             {
-                user = AppContext.Instance.CurrentUser(this);
+                user = AppContext.Instance.CurrentUser(User.Identity);
             }
             catch (Exception)
             {
@@ -62,7 +62,7 @@ namespace Sixty.Controllers
             User user = null;
             try
             {
-                user = AppContext.Instance.CurrentUser(this);
+                user = AppContext.Instance.CurrentUser(User.Identity);
             }
             catch (Exception)
             {
@@ -118,7 +118,7 @@ namespace Sixty.Controllers
             User user = null;
             try
             {
-                user = AppContext.Instance.CurrentUser(this);
+                user = AppContext.Instance.CurrentUser(User.Identity);
             }
             catch (Exception)
             {

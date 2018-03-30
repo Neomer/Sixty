@@ -1,0 +1,26 @@
+﻿@using Sixty.Helpers
+
+@{ 
+    var isAdmin = User.Identity.IsAuthenticated && Sixty.Helpers.AppContext.Instance.CurrentUser(User.Identity) != null && Sixty.Helpers.AppContext.Instance.CurrentUser(User.Identity).IsAdmin;
+}
+
+@if (isAdmin)
+{
+    <hr />
+    <li>
+        <div class="hoverable">
+            <a href="@Url.Action("Index", "Season")">
+                <img src="@Url.Content("~/Resources/Images/season16.png")" class="inline-image16" />
+            </a>
+            @Html.ActionLink("Управление сезонами", "Index", "Season")
+        </div>
+    </li>
+    <li>
+        <div class="hoverable">
+            <a href="@Url.Action("Index", "Division")">
+                <img src="@Url.Content("~/Resources/Images/division16.png")" class="inline-image16" />
+            </a>
+            @Html.ActionLink("Дивизионы", "Index", "Division")
+        </div>
+    </li>
+}
