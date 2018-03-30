@@ -14,6 +14,7 @@
     <property name="StatusString" />
     <property name="PhotoPath" />
     <property name="Phone" />
+    <property name="IsAdmin" />
     <many-to-one name="Team" class="Team" column="TeamID"/>
   </class>
 
@@ -38,6 +39,7 @@
       <generator class="guid"/>
     </id>
     <property name="Name" not-null="true" />
+    <property name="AvailableForNewbee" not-null="true" />
     <many-to-one name="CurrentSeason" class="Season" column="SeasonID"/>
   </class>
 

@@ -13,5 +13,6 @@ namespace Sixty.Models
 
         public virtual string Name { get; set; }
         public virtual Season CurrentSeason { get; set; }
+        public virtual bool AvailableForNewbee { get; set; }
     }
 }

@@ -70,7 +70,7 @@ namespace Sixty.Controllers
             }
             if (model.Photo != null)
             {
-                var filename = Guid.NewGuid().ToString() + '-' + Guid.NewGuid().ToString();
+                var filename = Guid.NewGuid().ToString() + '-' + Guid.NewGuid().ToString() + ".jpg";
                 model.Photo.SaveAs(Server.MapPath("~/Uploads/" + filename));
                 if (!string.IsNullOrEmpty(user.PhotoPath))
                 {
@@ -90,6 +90,7 @@ namespace Sixty.Controllers
             user.Name = model.Name;
             user.Surname = model.Surname;
             user.Phone = model.Phone;
+            user.IsAdmin = false;
 
             var manager = ManagerProvider.Instance.
                 Get<User>();
