@@ -29,10 +29,11 @@
     </div>
     <div class="portlet">
         <h3>@Model.TeamName</h3>
-        @{ 
+        @{
             if (!Model.HasTeam)
             {
-                @: <a href="@Url.Action("Find", "Team")"><img src="@Url.Content("~/Resources/Images/ext-link16.png")" class="inline-image16"  /> Найти команду</a>
+                <a href="@Url.Action("Find", "Team")" class="btn btn-primary"><img src="@Url.Content("~/Resources/Images/ext-link16-white.png")" class="inline-image16" /> Найти команду</a>
+                <a href="@Url.Action("Create", "Team")" class="btn btn-default"><img src="@Url.Content("~/Resources/Images/ext-link16.png")" class="inline-image16" /> Создать команду</a>
             }
         }
     </div>

@@ -1,7 +1,14 @@
-﻿@{ 
+﻿@model Sixty.ViewModels.TeamInfoViewModel
+
+@{ 
     ViewBag.Title = "Моя команда";
 }
 
 <div class="portlet">
-    
+    @if (Model == null)
+    {
+        <h4>У вас нет команды</h4>
+        <a href="@Url.Action("Find", "Team")" class="btn btn-primary"><img src="@Url.Content("~/Resources/Images/ext-link16-white.png")" class="inline-image16" /> Найти команду</a>
+        <a href="@Url.Action("Create", "Team")" class="btn btn-default"><img src="@Url.Content("~/Resources/Images/ext-link16.png")" class="inline-image16" /> Создать команду</a>
+    }
 </div>

@@ -160,3 +160,7 @@ h3 {
     display: none;
     font-size: 0.9em;
 }
+
+.btn-primary {
+    background-color: #92b3d4;
+}
