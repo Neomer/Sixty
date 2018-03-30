@@ -16,7 +16,7 @@
     <script src="@Url.Content("~/Resources/Script/jquery-ui-1.12.1.custom/jquery-ui.min.js")"></script>
 </head>
 <body>
-    <div class="navbar navbar-default">
+    <div class="navbar navbar-default navbar-white">
         <div class="container middle header">
             <div class="navbar-header">
                 <a class="navbar-brand" style="padding: 0px;" href="#">
@@ -36,7 +36,48 @@
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
+        <div class="col-md-2 no-padding column">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <ul class="user-menu">
+                    <li>
+                        <div class="hoverable">
+                            <a href="@Url.Action("Index", "Home")">
+                                <img src="@Url.Content("~/Resources/Images/home16.png")" />
+                            </a>
+                            @Html.ActionLink("Моя страница", "Index", "Home")
+                        </div>
+                    </li>
+                    <li>
+                        <div class="hoverable">
+                            <a href="@Url.Action("Profile", "Home")">
+                                <img src="@Url.Content("~/Resources/Images/profile16.png")" />
+                            </a>
+                            @Html.ActionLink("Мой профиль", "Profile", "Home")
+                        </div>
+                    </li>
+                    <li>
+                        <div class="hoverable">
+                            <a href="@Url.Action("Index", "Team")">
+                                <img src="@Url.Content("~/Resources/Images/team16.png")" />
+                            </a>
+                            @Html.ActionLink("Моя команда", "Index", "Team")
+                        </div>
+                    </li>
+                    <li>
+                        <div class="hoverable">
+                            <a href="@Url.Action("Index", "Message")">
+                                <img src="@Url.Content("~/Resources/Images/msg16.png")" />
+                            </a>
+                            @Html.ActionLink("Сообщения", "Index", "Message")
+                        </div>
+                    </li>
+                </ul>
+            }
+        </div>
+        <div class="col-md-10 no-padding column">
+            @RenderBody()
+        </div>
     </div>
 
 </body>

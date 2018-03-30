@@ -9,9 +9,18 @@ namespace Sixty.Controllers
     public class TeamController : Controller
     {
         // GET: Team
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult Find()
+        {
+            return View();
+        }
+
     }
 }

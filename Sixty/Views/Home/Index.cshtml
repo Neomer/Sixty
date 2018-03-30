@@ -1,34 +1,96 @@
-﻿@{
+﻿@model Sixty.ViewModels.UserMainInformationViewModel
+
+@{
     ViewBag.Title = "Главная страница";
 }
 
-<div class="col-md-2">
-    <ul class="user-menu">
-        <li>
-            <div class="hoverable">
-                <a href="@Url.Action("Profile", "Home")">
-                    <img src="@Url.Content("~/Resources/Images/home16.png")" />
-                </a>
-                @Html.ActionLink("Мой профиль", "Profile", "Home")
-            </div>
-        </li>
-        <li>
-            <div class="hoverable">
-                <a href="@Url.Action("Index", "Team")">
-                    <img src="@Url.Content("~/Resources/Images/team16.png")" />
-                </a> 
-                @Html.ActionLink("Моя команда", "Index", "Team")
-            </div>
-        </li>
-        <li>
-            <a href="@Url.Action("Index", "Message")">
-                <span class="hoverable">
-                    Сообщение
-                </span>
-            </a>
-        </li>
-    </ul>
+<div class="col-md-4 no-padding column">
+    <div class="portlet">
+        <div class="photo-container">
+            <img src="@Model.PhotoPath" />
+        </div>
+    </div>
 </div>
-<div class="col-md-10">
-    info
+<div class="col-md-8 no-padding column">
+    <div class="portlet">
+        <h3>@Model.Fullname</h3>
+        <span id="statusMsg">
+        @{
+            if (string.IsNullOrEmpty(Model.StatusMessage))
+            {
+                @: <img src="@Url.Content("~/Resources/Images/edit16.png")" class="inline-image16"  /> Здесь вы можете написать сообщение...
+            }
+            else
+            {
+                @: @Model.StatusMessage
+            } 
+        }
+        </span>
+    </div>
+    <div class="portlet">
+        <h3>@Model.TeamName</h3>
+        @{ 
+            if (!Model.HasTeam)
+            {
+                @: <a href="@Url.Action("Find", "Team")">Найти команду</a>
+            }
+        }
+    </div>
+    <div class="portlet">
+    </div>
 </div>
+
+<script type="text/javascript">
+    (function ($) {
+        $.fn.inlineEditor = function (options) {
+            var settings = $.extend({
+                'singleRow': true,
+                'title': 'Введите текст...',
+                'value': '',
+                'onFinish': function (value) {  }
+            }, options);
+
+            return this.each(function () {
+                var element = $(this);
+                var editor = (settings.singleRow) ? document.createElement('input') : document.createElement('textarea');
+                $(editor).addClass("inline-textbox");
+                $(editor).attr('placeholder', settings.title);
+                $(editor).val(settings.value);
+                $(editor).keypress(function (e) {
+                    if (e.which == 13) {
+                        element.show();
+                        $(editor).hide();
+                        settings.onFinish($(editor).val());
+                    }
+                });
+                $(editor).focusout(function () {
+                    element.show();
+                    $(editor).hide();
+                });
+                this.parentElement.appendChild(editor);
+                $(this).click(function () {
+                    element.hide();
+                    $(editor).show();
+                    $(editor).focus();
+                })
+            });
+
+
+        };
+    }(jQuery));
+
+    $(document).ready(function () {
+        $('#statusMsg').inlineEditor({
+            'value': '@Model.StatusMessage',
+            'onFinish': function(v) {
+                $('#statusMsg').html(v);
+                $.ajax({
+                    url: "@Url.Action("AjaxStatusUpdate")",
+                    data: 'statusMessage=' + v,
+                    dataType: 'text',
+                    method: 'post'
+                });
+            }
+        });
+    });
+</script>

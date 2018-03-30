@@ -30,7 +30,7 @@ namespace Sixty.Controllers
                 return RedirectToAction("Profile");
             }
 
-            return View();
+            return View(new UserMainInformationViewModel(user));
         }
 
         [Authorize]
@@ -88,6 +88,39 @@ namespace Sixty.Controllers
                 ModelState.AddModelError("Photo", TR.T("Не удалось обновить данные профиля! %1", ex.Message));
             }
             return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AjaxStatusUpdate(string statusMessage)
+        {
+            User user = null;
+            try
+            {
+                user = AppContext.Instance.CurrentUser(this);
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Logout", "Account");
+            }
+            user.StatusString = statusMessage;
+            var manager = ManagerProvider.Instance.
+                Get<User>();
+
+            if (manager == null)
+            {
+                throw new Exception(TR.T("Менеджер для сущности %1 не зарегистрирован в системе!", "User"));
+            }
+
+            try
+            {
+                manager.CreateEntity(user);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Photo", TR.T("Не удалось обновить данные профиля! %1", ex.Message));
+            }
+            return null;
         }
 
     }

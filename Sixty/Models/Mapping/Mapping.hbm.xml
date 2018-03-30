@@ -11,6 +11,8 @@
     <property name="BirthDate" />
     <property name="RegistrationDate" not-null="true" />
     <property name="LastVisitDate" />
+    <property name="StatusString" />
+    <property name="PhotoPath" />
     <many-to-one name="Team" class="Team" column="TeamID"/>
   </class>
 
