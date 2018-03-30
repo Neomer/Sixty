@@ -144,12 +144,16 @@
     <Compile Include="Managers\ManagerProvider.cs" />
     <Compile Include="Managers\TeamManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="Models\Division.cs" />
+    <Compile Include="Models\Game.cs" />
     <Compile Include="Models\IEntity.cs" />
+    <Compile Include="Models\Season.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />
+    <Compile Include="ViewModels\TeamInfoViewModel.cs" />
     <Compile Include="ViewModels\UserMainInformationViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
   </ItemGroup>

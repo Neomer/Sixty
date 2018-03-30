@@ -22,11 +22,45 @@
       <generator class="guid"/>
     </id>
     <property name="Name" not-null="true" />
-    <property name="Division" not-null="true" />
     <bag name="Users" inverse="true" order-by="name asc">
       <key column="TeamID"/>
       <one-to-many class="User"/>
     </bag>
+    <many-to-one name="Division" class="Division" column="DivisionID"/>
+    <bag name="Games" table="Registration">
+      <key column="TeamID"/>
+      <many-to-many class="Game" column="GameID"/>
+    </bag>
   </class>
-  
+
+  <class name="Division" table="Divisions" dynamic-update="true" >
+    <id name="Id" type="guid">
+      <generator class="guid"/>
+    </id>
+    <property name="Name" not-null="true" />
+    <many-to-one name="CurrentSeason" class="Season" column="SeasonID"/>
+  </class>
+
+  <class name="Season" table="Seasons" dynamic-update="true" >
+    <id name="Id" type="guid">
+      <generator class="guid"/>
+    </id>
+    <property name="Name" not-null="true" />
+    <property name="BeginDate"  />
+    <property name="EndDate" />
+    <property name="IsOver" />
+  </class>
+
+  <class name="Game" table="Games" dynamic-update="true" >
+    <id name="Id" type="guid">
+      <generator class="guid"/>
+    </id>
+    <property name="BeginDate" not-null="true" />
+    <property name="EndDate"  />
+    <bag name="Teams" table="Registration">
+      <key column="GameID"/>
+      <many-to-many class="Team" column="TeamID"/>
+    </bag>
+  </class>
+
 </hibernate-mapping>

@@ -5,22 +5,13 @@ using System.Web;
 
 namespace Sixty.Models
 {
-    public class Team : IEntity
+    public class Division : IEntity
     {
         #region IEntity interface
         public virtual Guid Id { get; set; }
         #endregion
 
         public virtual string Name { get; set; }
-        public virtual Division Division { get; set; }
-
-        public virtual IEnumerable<User> Users { get; set; }
-        public virtual IEnumerable<Game> Games { get; set; }
-    }
-
-    public enum TeamDivision
-    {
-        A,
-        B
+        public virtual Season CurrentSeason { get; set; }
     }
 }
