@@ -7,6 +7,7 @@ using Sixty.Models;
 using Sixty.Managers;
 using Sixty.Helpers;
 using Sixty.ViewModels;
+using System.IO;
 
 namespace Sixty.Controllers
 {
@@ -67,9 +68,28 @@ namespace Sixty.Controllers
             {
                 return RedirectToAction("Logout", "Account");
             }
+            if (model.Photo != null)
+            {
+                var filename = Guid.NewGuid().ToString() + '-' + Guid.NewGuid().ToString();
+                model.Photo.SaveAs(Server.MapPath("~/Uploads/" + filename));
+                if (!string.IsNullOrEmpty(user.PhotoPath))
+                {
+                    try
+                    {
+                        System.IO.File.Delete(Server.MapPath("~/Uploads/" + user.PhotoPath));
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+                }
+                user.PhotoPath = filename;
+            }
+
             user.BirthDate = model.BirthDate;
             user.Name = model.Name;
             user.Surname = model.Surname;
+            user.Phone = model.Phone;
 
             var manager = ManagerProvider.Instance.
                 Get<User>();

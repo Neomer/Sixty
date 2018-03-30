@@ -126,7 +126,14 @@ div.portlet {
 
 .photo-container {
    height: 250px;
+   width: 230px;
    margin: 15px;
+   overflow: hidden;
+}
+
+.photo-container > img {
+   height: 250px;
+   width: 230px;
 }
 
 h3 {

@@ -7,7 +7,7 @@
 <div class="col-md-4 no-padding column">
     <div class="portlet">
         <div class="photo-container">
-            <img src="@Model.PhotoPath" />
+            <img src="@Url.Content("~/Uploads/" + Model.PhotoPath + ".jpg")" />
         </div>
     </div>
 </div>
@@ -32,7 +32,7 @@
         @{ 
             if (!Model.HasTeam)
             {
-                @: <a href="@Url.Action("Find", "Team")">Найти команду</a>
+                @: <a href="@Url.Action("Find", "Team")"><img src="@Url.Content("~/Resources/Images/ext-link16.png")" class="inline-image16"  /> Найти команду</a>
             }
         }
     </div>

@@ -20,6 +20,7 @@ namespace Sixty.ViewModels
             Surname = user.Surname;
             BirthDate = user.BirthDate;
             Email = user.Email;
+            Phone = user.Phone;
         }
 
         [Display(Name = "Эл. почта")]
@@ -38,6 +39,9 @@ namespace Sixty.ViewModels
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Required]
         public Nullable<System.DateTime> BirthDate { get; set; }
+        [Display(Name = "Телефон")]
+        [DataType(DataType.PhoneNumber)]
+        public string Phone { get; set; }
         [Display(Name = "Фотография")]
         [DataType(DataType.Upload)]
         public HttpPostedFileBase Photo { get; set; }
