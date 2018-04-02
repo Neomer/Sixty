@@ -1,5 +1,7 @@
-﻿@using Sixty.Models
-@model IEnumerable<Division>
+﻿@using Sixty.ViewModels
+@using Sixty.Models
+@using Sixty.Helpers
+@model BaseEntityEdittingViewModel
 
 @{ 
     ViewBag.Title = "Управление дивизионами";
@@ -7,19 +9,27 @@
 }
 
 <div class="portlet">
+    <div class="row">
+        <div class="container" style="padding-bottom: 15px;">
+            <a href="@Url.Action("Create", "Division")" class="btn btn-primary"><img src="@Url.Content("~/Resources/Images/ext-link16-white.png")" class="inline-image16" /> Добавить дивизион</a>
+        </div>
+    </div>
     <table class="table table-striped">
         <thead>
         <th>#</th>
         <th>Наименование</th>
+        <th>Доступна для новичков</th>
         <th>Действия</th>
         </thead>
         <tbody>
-            @foreach(var item in Model)
+            @foreach(var item in Model.EntityList)
             {
+                var typedItem = item as Division;
                 <tr>
-                    <td>@num++</td>
-                    <td>@item.Name</td>
-                    <td>@item.AvailableForNewbee</td>
+                    <td>@(num++)</td>
+                    <td>@typedItem.Name</td>
+                    <td>@(typedItem.AvailableForNewbee ? TR.T("Да") : TR.T("Нет"))</td>
+                    <td></td>
                 </tr>
             }
         </tbody>

@@ -40,9 +40,9 @@ namespace Sixty.Managers
             }
         }
 
-        public IEnumerable<IEntity> GetAll()
+        public virtual IEnumerable<IEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return NHibernateHelper.Instance.GetCurrentSession().CreateCriteria<T>().List<T>();
         }
 
         public IEntity GetById(Guid id)

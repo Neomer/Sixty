@@ -153,6 +153,9 @@
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BaseEntityEdittingViewModel.cs" />
+    <Compile Include="ViewModels\DivisionCreationViewModel.cs" />
+    <Compile Include="ViewModels\IEntityEdittingViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />
     <Compile Include="ViewModels\TeamCreationViewModel.cs" />
@@ -217,6 +220,7 @@
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\Shared\AdminMenu.cshtml" />
     <Content Include="Views\Division\Index.cshtml" />
+    <Content Include="Views\Division\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

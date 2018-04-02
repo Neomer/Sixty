@@ -163,4 +163,9 @@ h3 {
 
 .btn-primary {
     background-color: #92b3d4;
+    border-color: #5b6e7d;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 8px 0 0;
 }

@@ -16,5 +16,13 @@ namespace Sixty.Managers
                 .Add(Restrictions.Eq("AvailableForNewbee", true))
                 .List<Division>();
         }
+
+        public override IEnumerable<IEntity> GetAll()
+        {
+            return NHibernateHelper.Instance.GetCurrentSession().CreateCriteria<Division>()
+                .AddOrder(Order.Asc("Name"))
+                .List<Division>();
+        }
+
     }
 }
