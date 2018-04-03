@@ -23,7 +23,6 @@
 .navbar-white > a {}
 
 .middle {
-    text-align: center;
     vertical-align: middle;
 }
 
@@ -173,4 +172,31 @@ input[type="radio"], input[type="checkbox"] {
 .center {
     text-align: center;
     vertical-align: middle;
+}
+
+.team-header {
+    height: 94px;
+}
+
+h3.team-name {
+    display: inline-block;
+}
+
+div.team-logo {
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.image-loader {
+    cursor: pointer;
+}
+
+.image-loader > div.upload {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    margin: auto;
+    background-color: #f00;
 }

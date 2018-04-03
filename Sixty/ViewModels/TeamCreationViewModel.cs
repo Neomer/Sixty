@@ -13,6 +13,9 @@ namespace Sixty.ViewModels
         [DataType(DataType.Text)]
         [Display(Name = "Название команды")]
         public string Name { get; set; }
+        [Display(Name = "Логотоип")]
+        [DataType(DataType.Upload)]
+        public HttpPostedFileBase Logo { get; set; }
 
 
         public IEnumerable<Division> AvailableDivisions { get; set; }

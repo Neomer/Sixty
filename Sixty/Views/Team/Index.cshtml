@@ -4,11 +4,49 @@
     ViewBag.Title = "Моя команда";
 }
 
-<div class="portlet">
-    @if (Model == null)
-    {
-        <h4>У вас нет команды</h4>
-        <a href="@Url.Action("Find", "Team")" class="btn btn-primary"><img src="@Url.Content("~/Resources/Images/ext-link16-white.png")" class="inline-image16" /> Найти команду</a>
-        <a href="@Url.Action("Create", "Team")" class="btn btn-default"><img src="@Url.Content("~/Resources/Images/ext-link16.png")" class="inline-image16" /> Создать команду</a>
+<div class="portlet team-header middle">
+    @{
+        if (Model == null)
+        {
+            <h4>У вас нет команды</h4>
+            <a href="@Url.Action("Find", "Team")" class="btn btn-primary"><img src="@Url.Content("~/Resources/Images/ext-link16-white.png")" class="inline-image16" /> Найти команду</a>
+            <a href="@Url.Action("Create", "Team")" class="btn btn-default"><img src="@Url.Content("~/Resources/Images/ext-link16.png")" class="inline-image16" /> Создать команду</a>
+        }
+        else
+        {
+            @: <div  id="logo" class="team-logo" ><img src="@Url.Content("~/Resources/Images/no-logo.png")" /></div>
+            @: <h3 class="team-name">@Model.Name</h3>
+        }
     }
 </div>
+<div class="portlet">
+
+</div>
+<script type="text/javascript">
+    $(function () {
+        (function ($) {
+            $.fn.imageLoader = function (options) {
+                var settings = $.extend({
+                    'onFinish': function (value) { }
+                }, options);
+
+                return this.each(function () {
+                    var element = $(this);
+                    element.addClass("image-loader");
+                    element.mouseenter(function () {
+                        console.log('mouse in');
+                    });
+                    element.mouseleave(function () {
+                        console.log('mouse out');
+                    });
+                    var editor = document.createElement('div');
+                    $(editor).addClass('upload');
+                    this.appendChild(editor);
+                });
+
+
+            };
+        }(jQuery));
+        $("#logo").imageLoader();
+    });
+</script>
