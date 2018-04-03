@@ -129,9 +129,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseEntityController.cs" />
     <Compile Include="Controllers\DivisionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IEntityController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\SeasonController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Extensions\HtmlExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -144,6 +147,7 @@
     <Compile Include="Managers\IManager.cs" />
     <Compile Include="Managers\ManagerProvider.cs" />
     <Compile Include="Managers\DivisionManager.cs" />
+    <Compile Include="Managers\SeasonManager.cs" />
     <Compile Include="Managers\TeamManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Models\Division.cs" />
@@ -157,6 +161,7 @@
     <Compile Include="ViewModels\DivisionCreationViewModel.cs" />
     <Compile Include="ViewModels\IEntityEdittingViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\SeasonEdittingViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />
     <Compile Include="ViewModels\TeamCreationViewModel.cs" />
     <Compile Include="ViewModels\TeamInfoViewModel.cs" />
@@ -171,6 +176,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <EmbeddedResource Include="Models\Mapping\Mapping.hbm.xml" />
+    <Content Include="Resources\Images\delete16.png" />
     <Content Include="Resources\Images\division16.png" />
     <Content Include="Resources\Images\edit16.png" />
     <Content Include="Resources\Images\ext-link16-white.png" />
@@ -220,7 +226,9 @@
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\Shared\AdminMenu.cshtml" />
     <Content Include="Views\Division\Index.cshtml" />
-    <Content Include="Views\Division\Create.cshtml" />
+    <Content Include="Views\Division\Edit.cshtml" />
+    <Content Include="Views\Season\Index.cshtml" />
+    <Content Include="Views\Season\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

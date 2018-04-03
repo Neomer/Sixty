@@ -36,5 +36,13 @@ namespace Sixty.Managers
         /// Сохраняет экземпляр сущности в базе
         /// </summary>
         void SaveEntity(IEntity entity);
+        /// <summary>
+        /// Удаляет экземпляр сущности из базы
+        /// </summary>
+        void DeleteEntity(IEntity entity);
+        /// <summary>
+        /// Редактирует сущность или создает ее, если не была создана ранее
+        /// </summary>
+        void UpdateEntity(IEntity entity);
     }
 }

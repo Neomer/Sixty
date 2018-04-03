@@ -2,9 +2,11 @@
 @model Sixty.ViewModels.DivisionCreationViewModel
 
 <div class="portlet">
-    @using (Html.BeginForm("Create", "Division", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("Edit", "Division", FormMethod.Post, new { @class = "form-horizontal" }))
     {
         @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.IsNew)
+        @Html.HiddenFor(m => m.Id)
         <div class="form-group">
             @Html.LabelFor(m => m.Name, new { @class = "col-sm-3 control-label" })
             <div class="col-sm-9">
@@ -19,7 +21,10 @@
                 @Html.ValidationMessageFor(m => m.AvailableForNewbee)
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">@TR.T("Добавить")</button>
+        <div class="form-group center">
+            @Html.ValidationMessageFor(m => m.Error)
+        </div>
+        <button type="submit" class="btn btn-primary">@TR.T("Сохранить")</button>
         @Html.ActionLink(TR.T("Назад"), "Index", "Division")
     }
 </div>

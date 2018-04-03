@@ -13,8 +13,8 @@ namespace Sixty.Models
 
         public virtual string Name { get; set; }
 
-        public virtual DateTime BeginDate { get; set; }
-        public virtual DateTime EndDate { get; set; }
+        public virtual DateTime? BeginDate { get; set; }
+        public virtual DateTime? EndDate { get; set; }
 
         public virtual bool IsOver { get; set; }
     }

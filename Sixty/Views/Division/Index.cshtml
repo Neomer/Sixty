@@ -1,7 +1,6 @@
-﻿@using Sixty.ViewModels
-@using Sixty.Models
+﻿@using Sixty.Models
 @using Sixty.Helpers
-@model BaseEntityEdittingViewModel
+@model IEnumerable<Division>
 
 @{ 
     ViewBag.Title = "Управление дивизионами";
@@ -11,25 +10,27 @@
 <div class="portlet">
     <div class="row">
         <div class="container" style="padding-bottom: 15px;">
-            <a href="@Url.Action("Create", "Division")" class="btn btn-primary"><img src="@Url.Content("~/Resources/Images/ext-link16-white.png")" class="inline-image16" /> Добавить дивизион</a>
+            <a href="@Url.Action("Edit", "Division")" class="btn btn-primary"><img src="@Url.Content("~/Resources/Images/ext-link16-white.png")" class="inline-image16" /> Добавить дивизион</a>
         </div>
     </div>
     <table class="table table-striped">
         <thead>
-        <th>#</th>
-        <th>Наименование</th>
-        <th>Доступна для новичков</th>
-        <th>Действия</th>
+        <th class="center">#</th>
+        <th class="center">@TR.T("Наименование")</th>
+        <th class="center">@TR.T("Доступен для новичков")</th>
+        <th class="center">@TR.T("Действия")</th>
         </thead>
         <tbody>
-            @foreach(var item in Model.EntityList)
+            @foreach(var item in Model)
             {
-                var typedItem = item as Division;
                 <tr>
                     <td>@(num++)</td>
-                    <td>@typedItem.Name</td>
-                    <td>@(typedItem.AvailableForNewbee ? TR.T("Да") : TR.T("Нет"))</td>
-                    <td></td>
+                    <td>@item.Name</td>
+                    <td class="center">@(item.AvailableForNewbee ? TR.T("Да") : TR.T("Нет"))</td>
+                    <td class="center">
+                        <a href="@Url.Action("Edit", "Division", new { id = @item.Id }, null)"><img src="@Url.Content("~/Resources/Images/edit16.png")" class="inline-image16" /></a>
+                        <a href="@Url.Action("Delete", "Division", new { id = @item.Id }, null)"><img src="@Url.Content("~/Resources/Images/delete16.png")" class="inline-image16" /></a>
+                    </td>
                 </tr>
             }
         </tbody>

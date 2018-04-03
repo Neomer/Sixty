@@ -7,13 +7,13 @@ using System.Web;
 
 namespace Sixty.ViewModels
 {
-    public class DivisionCreationViewModel : BaseEntityEdittingViewModel<Division>
+    public class SeasonEdittingViewModel : BaseEntityEdittingViewModel<Season>
     {
-        public DivisionCreationViewModel() : base()
+        public SeasonEdittingViewModel() : base()
         {
         }
 
-        public DivisionCreationViewModel(Division model)
+        public SeasonEdittingViewModel(Season model)
         {
             LoadEntity(model);
         }
@@ -23,18 +23,18 @@ namespace Sixty.ViewModels
             base.LoadEntity(entity);
             if (entity != null)
             {
-                var typed = entity as Division;
+                var typed = entity as Season;
                 Name = typed.Name;
-                AvailableForNewbee = typed.AvailableForNewbee;
+                BeginDate = typed.BeginDate;
             }
         }
 
         public override void FillEntity(ref IEntity entity)
         {
             base.FillEntity(ref entity);
-            var typed = entity as Division;
+            var typed = entity as Season;
             typed.Name = Name;
-            typed.AvailableForNewbee = AvailableForNewbee;
+            typed.BeginDate = BeginDate;
         }
 
         [Required]
@@ -43,7 +43,10 @@ namespace Sixty.ViewModels
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "Доступен для новых команд")]
-        public bool AvailableForNewbee { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Дата начала")]
+        public Nullable<System.DateTime> BeginDate { get; set; }
+
     }
 }

@@ -149,7 +149,7 @@ h3 {
 
 .inline-image16 {
     padding-right: 3px;
-    top: -3px;
+    top: -2px;
     position: relative;
 }
 
@@ -168,4 +168,9 @@ h3 {
 
 input[type="radio"], input[type="checkbox"] {
     margin: 8px 0 0;
+}
+
+.center {
+    text-align: center;
+    vertical-align: middle;
 }

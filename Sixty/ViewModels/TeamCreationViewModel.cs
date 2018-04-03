@@ -10,5 +10,6 @@ namespace Sixty.ViewModels
     {
         public string Name { get; set; }
         public IEnumerable<Division> AvailableDivisions { get; set; }
+        public string Error { get; set; }
     }
 }

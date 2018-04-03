@@ -29,6 +29,7 @@ namespace Sixty
             ManagerProvider.Instance.Register(new UserManager());
             ManagerProvider.Instance.Register(new TeamManager());
             ManagerProvider.Instance.Register(new DivisionManager());
+            ManagerProvider.Instance.Register(new SeasonManager());
         }
     }
 }
