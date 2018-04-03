@@ -27,6 +27,10 @@ namespace Sixty.Controllers
         [HttpGet]
         public virtual ActionResult Delete(Guid id)
         {
+            if (!Sixty.Helpers.AppContext.Instance.CurrentUser(User.Identity).IsAdmin)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var manager = ManagerProvider.Instance.Get<T>();
             if (manager == null)
             {
@@ -45,6 +49,10 @@ namespace Sixty.Controllers
         [HttpGet]
         public virtual ActionResult Edit(Guid? id = default(Guid?))
         {
+            if (!Sixty.Helpers.AppContext.Instance.CurrentUser(User.Identity).IsAdmin)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var model = new VM();
             if (id != null)
             {
@@ -63,6 +71,14 @@ namespace Sixty.Controllers
         [HttpPost]
         public virtual ActionResult Edit(VM viewmodel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(viewmodel);
+            }
+            if (!Sixty.Helpers.AppContext.Instance.CurrentUser(User.Identity).IsAdmin)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var manager = ManagerProvider.Instance.Get<T>();
             if (manager == null)
             {
@@ -113,6 +129,10 @@ namespace Sixty.Controllers
         [HttpGet]
         public virtual ActionResult Index()
         {
+            if (!Sixty.Helpers.AppContext.Instance.CurrentUser(User.Identity).IsAdmin)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var manager = ManagerProvider.Instance.Get<T>();
             if (manager == null)
             {

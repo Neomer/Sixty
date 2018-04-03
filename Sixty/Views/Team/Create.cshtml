@@ -6,7 +6,7 @@
 }
 
 <div class="portlet">
-    @using (Html.BeginForm("Edit", "Division", FormMethod.Post, new { @class = "form-horizontal" }))
+    @using (Html.BeginForm("Create", "Team", FormMethod.Post, new { @class = "form-horizontal" }))
     {
         @Html.AntiForgeryToken()
         <div class="form-group">
@@ -20,6 +20,6 @@
             @Html.ValidationMessageFor(m => m.Error)
         </div>
         <button type="submit" class="btn btn-primary">@TR.T("Сохранить")</button>
-        @Html.ActionLink(TR.T("Назад"), "Index", "Division")
+        @Html.ActionLink(TR.T("Назад"), "Team", "Team")
     }
 </div>

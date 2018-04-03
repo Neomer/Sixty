@@ -30,6 +30,11 @@ namespace Sixty.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            if (Sixty.Helpers.AppContext.Instance.CurrentUser(User.Identity).Team != null)
+            {
+                return RedirectToAction("Index", "Team");
+            }
+
             var model = new TeamCreationViewModel();
             var divisionManager = ManagerProvider.Instance.Get<Division>() as DivisionManager;
             if (divisionManager == null)
@@ -44,6 +49,16 @@ namespace Sixty.Controllers
         [HttpPost]
         public ActionResult Create(TeamCreationViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if (Sixty.Helpers.AppContext.Instance.CurrentUser(User.Identity).Team != null)
+            {
+                return RedirectToAction("Index", "Team");
+            }
+
             return View(model);
         }
 
