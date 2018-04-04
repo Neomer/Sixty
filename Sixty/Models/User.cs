@@ -24,6 +24,7 @@ namespace Sixty.Models
 
         public virtual string StatusString { get; set; }
         public virtual string PhotoPath { get; set; }
+        public virtual string PhotoPreviewPath { get; set; }
 
         public virtual string Phone { get; set; }
         public virtual bool IsAdmin { get; set; }

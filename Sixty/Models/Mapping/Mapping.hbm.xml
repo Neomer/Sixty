@@ -13,6 +13,7 @@
     <property name="LastVisitDate" />
     <property name="StatusString" />
     <property name="PhotoPath" />
+    <property name="PhotoPreviewPath" />
     <property name="Phone" />
     <property name="IsAdmin" />
     <many-to-one name="Team" class="Team" column="TeamID"/>

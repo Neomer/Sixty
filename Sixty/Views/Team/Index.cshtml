@@ -14,39 +14,88 @@
         }
         else
         {
-            @: <div  id="logo" class="team-logo" ><img src="@Url.Content("~/Resources/Images/no-logo.png")" /></div>
+            @: <div  id="logo" class="team-logo" ></div>
             @: <h3 class="team-name">@Model.Name</h3>
         }
     }
 </div>
-<div class="portlet">
-
+<div class="col-md-4 no-padding column">
+    <div class="portlet">
+        <span class="title">
+            Состав
+        </span>
+        <div>
+            <ul class="user-list">
+                @foreach (var user in Model.Users)
+                {
+                    <li>
+                        <a href="#">
+                            <img src="@Url.Content("~/Uploads/" + user.PhotoPath)" />
+                            <span>@user.Name @user.Surname</span>
+                        </a>
+                    </li>
+                    <li>
+                        <img src="@Url.Content("~/Uploads/" + user.PhotoPath)" />
+                        <span>@user.Name @user.Surname</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-md-8 no-padding column">
+    <div class="portlet">
+        <span class="title">
+            Достижения
+        </span>
+        <div class="content">
+            Все еще впереди!
+             dvfds
+            f 
+            sdfv
+             sdfvsdf v
+            sfdv sdf
+            v df<br />
+            sdbvfv 
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
     $(function () {
         (function ($) {
             $.fn.imageLoader = function (options) {
-                var settings = $.extend({
-                    'onFinish': function (value) { }
-                }, options);
+            var settings = $.extend({
+                'onFinish': function (value) { }
+            }, options);
 
-                return this.each(function () {
-                    var element = $(this);
-                    element.addClass("image-loader");
-                    element.mouseenter(function () {
-                        console.log('mouse in');
-                    });
-                    element.mouseleave(function () {
-                        console.log('mouse out');
-                    });
-                    var editor = document.createElement('div');
-                    $(editor).addClass('upload');
-                    this.appendChild(editor);
+            return this.each(function () {
+                var element = $(this);
+                element.addClass("image-loader");
+
+                var menu = document.createElement('div');
+                $(menu).addClass('upload-menu');
+                $(menu).hide();
+
+                $(menu).css({
+                    width: element.width()
                 });
 
 
-            };
-        }(jQuery));
-        $("#logo").imageLoader();
+                var editor = document.createElement('div');
+                $(editor).addClass('upload');
+
+                element.mouseenter(function () {
+                    $(menu).show('fade', {}, 300);
+                });
+                element.mouseleave(function () {
+                    $(menu).hide('fade', {}, 300);
+                });
+
+                menu.appendChild(editor);
+                this.appendChild(menu);
+            });
+        };
+    }(jQuery));
+    $("#logo").imageLoader();
     });
 </script>

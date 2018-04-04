@@ -141,6 +141,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AppContext.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\NHibernateHelper.cs" />
     <Compile Include="Helpers\Translator.cs" />
     <Compile Include="Managers\BaseManager.cs" />
@@ -180,12 +181,15 @@
     <Content Include="Resources\Images\division16.png" />
     <Content Include="Resources\Images\edit16.png" />
     <Content Include="Resources\Images\ext-link16-white.png" />
+    <Content Include="Resources\Images\ext-link16.png" />
     <Content Include="Resources\Images\home16.png" />
     <Content Include="Resources\Images\main-logo.png" />
     <Content Include="Resources\Images\msg16.png" />
+    <Content Include="Resources\Images\no-logo.png" />
     <Content Include="Resources\Images\profile16.png" />
     <Content Include="Resources\Images\season16.png" />
     <Content Include="Resources\Images\team16.png" />
+    <Content Include="Resources\Images\upload24.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Nhibernate.cfg.xml">

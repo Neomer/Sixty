@@ -6,38 +6,38 @@
 
 <div class="col-md-4 no-padding column">
     <div class="portlet">
-        <div class="photo-container">
-            <img src="@Url.Content("~/Uploads/" + Model.PhotoPath)" />
-        </div>
+        <div class="photo-container"></div>
     </div>
 </div>
 <div class="col-md-8 no-padding column">
     <div class="portlet">
-        <h3>@Model.Fullname</h3>
-        <span id="statusMsg">
-        @{
-            if (string.IsNullOrEmpty(Model.StatusMessage))
-            {
-                @: <img src="@Url.Content("~/Resources/Images/edit16.png")" class="inline-image16"  /> Здесь вы можете написать сообщение...
-            }
-            else
-            {
-                @: @Model.StatusMessage
-            } 
-        }
-        </span>
+        <div class="content">
+            <h3>@Model.Fullname</h3>
+            <span id="statusMsg">
+                @{
+                    if (string.IsNullOrEmpty(Model.StatusMessage))
+                    {
+                        @: <img src="@Url.Content("~/Resources/Images/edit16.png")" class="inline-image16" /> Здесь вы можете написать сообщение...
+                    }
+                    else
+                    {
+                                @: @Model.StatusMessage
+                    }
+                }
+            </span>
+        </div>
     </div>
     <div class="portlet">
-        <h3>@Model.TeamName</h3>
-        @{
-            if (!Model.HasTeam)
-            {
-                <a href="@Url.Action("Find", "Team")" class="btn btn-primary"><img src="@Url.Content("~/Resources/Images/ext-link16-white.png")" class="inline-image16" /> Найти команду</a>
-                <a href="@Url.Action("Create", "Team")" class="btn btn-default"><img src="@Url.Content("~/Resources/Images/ext-link16.png")" class="inline-image16" /> Создать команду</a>
+        <div class="content">
+            <h3>@Model.TeamName</h3>
+            @{
+                if (!Model.HasTeam)
+                {
+                    <a href="@Url.Action("Find", "Team")" class="btn btn-primary"><img src="@Url.Content("~/Resources/Images/ext-link16-white.png")" class="inline-image16" /> Найти команду</a>
+                    <a href="@Url.Action("Create", "Team")" class="btn btn-default"><img src="@Url.Content("~/Resources/Images/ext-link16.png")" class="inline-image16" /> Создать команду</a>
+                }
             }
-        }
-    </div>
-    <div class="portlet">
+        </div>
     </div>
 </div>
 
@@ -75,10 +75,9 @@
                     $(editor).focus();
                 })
             });
-
-
         };
     }(jQuery));
+
 
     $(document).ready(function () {
         $('#statusMsg').inlineEditor({
@@ -93,5 +92,7 @@
                 });
             }
         });
+
+        //$(".photo-container").imageLoader();
     });
 </script>

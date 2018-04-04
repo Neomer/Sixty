@@ -20,9 +20,11 @@ namespace Sixty.ViewModels
                 return;
             }
             Name = model.Name;
+            Users = model.Users;
         }
 
         public string Name { get; set; }
         public string DivisionName { get; set; }
+        public IEnumerable<User> Users { get; set; }
     }
 }

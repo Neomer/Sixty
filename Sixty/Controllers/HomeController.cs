@@ -8,6 +8,7 @@ using Sixty.Managers;
 using Sixty.Helpers;
 using Sixty.ViewModels;
 using System.IO;
+using System.Drawing;
 
 namespace Sixty.Controllers
 {
@@ -84,6 +85,12 @@ namespace Sixty.Controllers
                     }
                 }
                 user.PhotoPath = filename;
+
+                var bitmap = new Bitmap(Server.MapPath("~/Uploads/" + user.PhotoPath));
+                var previewImage = ImageHelper.ResizeImage(bitmap, 64, 64);
+                var previewFilename = Guid.NewGuid().ToString() + '-' + Guid.NewGuid().ToString() + ".jpg";
+                previewImage.Save(Server.MapPath("~/Uploads/" + previewFilename));
+                user.PhotoPreviewPath = previewFilename;
             }
 
             user.BirthDate = model.BirthDate;
